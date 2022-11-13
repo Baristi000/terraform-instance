@@ -77,7 +77,7 @@ variable "vm_ip" {
 }
 
 variable "vm_disk_size" {
-  description = "Virtual machine disk size. (Gb)"
+  description = "Virtual machine disk size (Gb)."
   type        = number
   default     = 20
 }
