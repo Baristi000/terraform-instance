@@ -1,4 +1,4 @@
 output "connect_cli" {
   description = "Instance connect ip"
-  value       = var.vm_ip
+  value       = "ssh unicloud@${var.vm_ip}"
 }
