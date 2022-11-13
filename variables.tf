@@ -65,7 +65,7 @@ variable "vm_cpus" {
 }
 
 variable "vm_mem" {
-  description = "Virtual machine memory number."
+  description = "Virtual machine memory number (Mb)."
   type        = number
   default     = 2048
 }
@@ -77,7 +77,7 @@ variable "vm_ip" {
 }
 
 variable "vm_disk_size" {
-  description = "Virtual machine disk size."
+  description = "Virtual machine disk size. (Gb)"
   type        = number
   default     = 20
 }
