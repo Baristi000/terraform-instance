@@ -43,12 +43,14 @@ variable "user" {
   description = "Vcenter server username."
   type        = string
   default     = "administrator@vcenter.local"
+  sensitive   = true
 }
 
 variable "password" {
   description = "Vcenter server password."
   type        = string
   default     = "Aqswde123@@"
+  sensitive   = true
 }
 
 variable "vsphere_server" {
