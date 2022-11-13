@@ -1,3 +1,44 @@
+variable "vm_name" {
+  description = "Virtual machine name."
+  type        = string
+}
+
+variable "vm_ip" {
+  description = "Virtual machine ip address."
+  type        = string
+  default     = "10.30.1.25"
+}
+
+variable "vm_disk_size" {
+  description = "Virtual machine disk size (Gb)."
+  type        = number
+  default     = 20
+}
+
+variable "instance_type" {
+  description = "Virtual machine instance type."
+  type        = string
+  default     = "t2.small"
+}
+
+variable "cpu_units_list" {
+  description = "Number of virtual cpu."
+  type = map(number)
+  default = {
+    "t2.small"   = 1
+    "t2.medium"  = 2
+  }
+}
+
+variable "mems_list" {
+  description = "Memory capacity."
+  type = map(number)
+  default = {
+    "t2.small"   = 2048
+    "t2.medium"  = 4096
+  }
+}
+
 variable "user" {
   description = "Vcenter server username."
   type        = string
@@ -51,33 +92,4 @@ variable "template" {
   description = "Vcenter template name."
   type        = string
   default     = "Ubuntu-20.04"
-}
-
-variable "vm_name" {
-  description = "Virtual machine name."
-  type        = string
-}
-
-variable "vm_cpus" {
-  description = "Virtual machine cpu number."
-  type        = number
-  default     = 1
-}
-
-variable "vm_mem" {
-  description = "Virtual machine memory number (Mb)."
-  type        = number
-  default     = 2048
-}
-
-variable "vm_ip" {
-  description = "Virtual machine ip address."
-  type        = string
-  default     = "10.30.1.25"
-}
-
-variable "vm_disk_size" {
-  description = "Virtual machine disk size (Gb)."
-  type        = number
-  default     = 20
 }
