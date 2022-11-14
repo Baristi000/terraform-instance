@@ -66,5 +66,4 @@ variable "cluster_config" {
     vsphere_compute_cluster = "Cluster.HCM"
     template                = "Ubuntu-20.04"
   }
-  sensitive   = true
 }
