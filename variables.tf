@@ -7,7 +7,7 @@ variable "vm_name" {
 variable "vm_ip" {
   description = "Virtual machine ip address."
   type        = string
-  default     = "10.30.1.25"
+  /* default     = "10.30.1.25" */
 }
 
 variable "vm_disk_size" {
@@ -19,26 +19,7 @@ variable "vm_disk_size" {
 variable "instance_type" {
   description = "Virtual machine instance type."
   type        = string
-  default     = "t2.small"
-}
-
-# optional config
-variable "cpu_units_list" {
-  description = "Number of virtual cpu."
-  type = map(number)
-  default = {
-    "t2.small"   = 1
-    "t2.medium"  = 2
-  }
-}
-
-variable "mems_list" {
-  description = "Memory capacity."
-  type = map(number)
-  default = {
-    "t2.small"   = 2048
-    "t2.medium"  = 4096
-  }
+  /* default     = "t2.small" */
 }
 
 # sensitive config
@@ -65,5 +46,24 @@ variable "cluster_config" {
     vsphere_network         = "VM Network"
     vsphere_compute_cluster = "Cluster.HCM"
     template                = "Ubuntu-20.04"
+  }
+}
+
+# optional config
+variable "cpu_units_list" {
+  description = "Number of virtual cpu."
+  type = map(number)
+  default = {
+    "t2.small"   = 1
+    "t2.medium"  = 2
+  }
+}
+
+variable "mems_list" {
+  description = "Memory capacity."
+  type = map(number)
+  default = {
+    "t2.small"   = 2048
+    "t2.medium"  = 4096
   }
 }
