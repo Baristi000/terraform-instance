@@ -48,22 +48,3 @@ variable "cluster_config" {
     template                = "Ubuntu-20.04"
   }
 }
-
-# optional config
-variable "cpu_units_list" {
-  description = "Number of virtual cpu."
-  type = map(number)
-  default = {
-    "t2.small"   = 1
-    "t2.medium"  = 2
-  }
-}
-
-variable "mems_list" {
-  description = "Memory capacity."
-  type = map(number)
-  default = {
-    "t2.small"   = 2048
-    "t2.medium"  = 4096
-  }
-}
