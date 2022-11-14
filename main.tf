@@ -1,14 +1,3 @@
-# locals
-locals {
-  cpu_units_list = {
-    "t2.small"   = 1
-    "t2.medium"  = 2
-  }
-  mems_list      = {
-    "t2.small"   = 2048
-    "t2.medium"  = 4096
-  }
-}
 
 
 # Provider
