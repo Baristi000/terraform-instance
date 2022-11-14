@@ -22,21 +22,10 @@ variable "instance_type" {
   default     = "t2.small"
 }
 
+# unable to edit config
 # sensitive config
-variable "cluster_config" {
-  description     = "Cluster configuration."
-  type = object({
-    user                    = string,
-    password                = string,
-    vsphere_server          = string,
-    allow_unverified_ssl    = bool,
-    vsphere_datacenter      = string,
-    vsphere_datastore       = string,
-    vsphere_network         = string,
-    vsphere_compute_cluster = string,
-    template                = string
-  })
-  default = {
+locals {
+  cluster_config = {
     user                    = "administrator@vcenter.local",
     password                = "Aqswde123@@",
     vsphere_server          = "10.35.1.35",
@@ -49,6 +38,7 @@ variable "cluster_config" {
   }
 }
 
+# config template
 locals {
   cpu_units_list = {
     "t2.small"   = 1,
