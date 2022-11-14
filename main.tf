@@ -1,3 +1,17 @@
+# locals
+locals {
+  cpu_units_list = {
+    "t2.small"   = 1
+    "t2.medium"  = 2
+  }
+  mems_list      = {
+    "t2.small"   = 2048
+    "t2.medium"  = 4096
+  }
+}
+
+
+# Provider
 provider "vsphere" {
   user                 = var.cluster_config.user
   password             = var.cluster_config.password
@@ -33,8 +47,8 @@ resource "vsphere_virtual_machine" "vm" {
   name             = var.vm_name
   datastore_id     = data.vsphere_datastore.datastore.id
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
-  num_cpus         = lookup(var.cpu_units_list, var.instance_type)
-  memory           = lookup(var.mems_list, var.instance_type)
+  num_cpus         = lookup(local.cpu_units_list, var.instance_type)
+  memory           = lookup(local.mems_list, var.instance_type)
   guest_id         = data.vsphere_virtual_machine.template.guest_id
   network_interface {
     network_id = data.vsphere_network.network.id
@@ -54,7 +68,7 @@ resource "vsphere_virtual_machine" "vm" {
     }
   }
   disk {
-    label = "disk1"
+    label = "disk0"
     size  = var.vm_disk_size
   }
 }
