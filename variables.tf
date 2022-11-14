@@ -1,3 +1,4 @@
+# editable config
 variable "vm_name" {
   description = "Virtual machine name."
   type        = string
@@ -21,6 +22,7 @@ variable "instance_type" {
   default     = "t2.small"
 }
 
+# optional config
 variable "cpu_units_list" {
   description = "Number of virtual cpu."
   type = map(number)
@@ -39,59 +41,30 @@ variable "mems_list" {
   }
 }
 
-variable "user" {
-  description = "Vcenter server username."
-  type        = string
-  default     = "administrator@vcenter.local"
+# sensitive config
+variable "cluster_config" {
+  description     = "Cluster configuration."
+  type = object({
+    user                    = string
+    password                = string
+    vsphere_server          = string
+    allow_unverified_ssl    = bool
+    vsphere_datacenter      = string
+    vsphere_datastore       = string
+    vsphere_network         = string
+    vsphere_compute_cluster = string
+    template                = string
+  })
+  default = {
+    user                    = "administrator@vcenter.local"
+    password                = "Aqswde123@@"
+    vsphere_server          = "10.35.1.35"
+    allow_unverified_ssl    = true
+    vsphere_datacenter      = "Datacenter"
+    vsphere_datastore       = "12. SSD-Raid1"
+    vsphere_network         = "VM Network"
+    vsphere_compute_cluster = "Cluster.HCM"
+    template                = "Ubuntu-20.04"
+  }
   sensitive   = true
-}
-
-variable "password" {
-  description = "Vcenter server password."
-  type        = string
-  default     = "Aqswde123@@"
-  sensitive   = true
-}
-
-variable "vsphere_server" {
-  description = "Vcenter server ip."
-  type        = string
-  default     = "10.35.1.35"
-}
-
-variable "allow_unverified_ssl" {
-  description = "Vcenter server cert : true if using https, false if using http."
-  type        = bool
-  default     = true
-}
-
-variable "vsphere_datacenter" {
-  description = "Vcenter datacenter name."
-  type        = string
-  default     = "Datacenter"
-}
-
-
-variable "vsphere_datastore" {
-  description = "Vcenter datastore name."
-  type        = string
-  default     = "RAID5_HDD"
-}
-
-variable "vsphere_network" {
-  description = "Vcenter network name."
-  type        = string
-  default     = "VM Network"
-}
-
-variable "vsphere_compute_cluster" {
-  description = "Vcenter cluster name."
-  type        = string
-  default     = "Cluster.HCM"
-}
-
-variable "template" {
-  description = "Vcenter template name."
-  type        = string
-  default     = "Ubuntu-20.04"
 }

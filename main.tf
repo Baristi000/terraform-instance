@@ -1,31 +1,31 @@
 provider "vsphere" {
-  user                 = var.user
-  password             = var.password
-  vsphere_server       = var.vsphere_server
-  allow_unverified_ssl = var.allow_unverified_ssl
+  user                 = var.cluster_config.user
+  password             = var.cluster_config.password
+  vsphere_server       = var.cluster_config.vsphere_server
+  allow_unverified_ssl = var.cluster_config.allow_unverified_ssl
 }
 
 data "vsphere_datacenter" "datacenter" {
-  name = var.vsphere_datacenter
+  name = var.cluster_config.vsphere_datacenter
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = var.vsphere_datastore
+  name          = var.cluster_config.vsphere_datastore
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
 data "vsphere_network" "network" {
-  name          = var.vsphere_network
+  name          = var.cluster_config.vsphere_network
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
 data "vsphere_compute_cluster" "cluster" {
-  name          = var.vsphere_compute_cluster
+  name          = var.cluster_config.vsphere_compute_cluster
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
 data "vsphere_virtual_machine" "template" {
-  name          = var.template
+  name          = var.cluster_config.template
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
