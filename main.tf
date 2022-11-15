@@ -45,7 +45,7 @@ resource "vsphere_virtual_machine" "vm" {
     customize {
       linux_options {
         host_name = var.vm_name
-        domain    = var.vm_name
+        domain    = "8.8.8.8"
       }
       network_interface {
         ipv4_address = var.vm_ip
