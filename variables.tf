@@ -42,10 +42,22 @@ locals {
 locals {
   cpu_units_list = {
     "t2.small"   = 1,
-    "t2.medium"  = 2
+    "t2.medium"  = 2,
+    "t2.large"   = 2,
+    "t2.xlarge"  = 4,
+    "t2.2xlarge" = 8,
+    "a1.metal"   = 16,
+    "c3.xlarge"  = 4,
+    "c1.xlarge"  = 8
   }
   mems_list      = {
     "t2.small"   = 2048,
-    "t2.medium"  = 4096
+    "t2.medium"  = 4096,
+    "t2.large"   = 8192,
+    "t2.xlarge"  = 16384,
+    "t2.2xlarge" = 32768,
+    "a1.metal"   = 32768,
+    "c3.xlarge"  = 7680,
+    "c1.xlarge"  = 7168
   }
 }
