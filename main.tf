@@ -44,7 +44,7 @@ resource "vsphere_virtual_machine" "vm" {
     template_uuid = data.vsphere_virtual_machine.template.id
     customize {
       linux_options {
-        host_name = var.vm_name
+        host_name = "unicloud"
         domain    = "8.8.8.8"
       }
       network_interface {
