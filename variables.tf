@@ -34,7 +34,7 @@ locals {
     vsphere_datastore       = "12. SSD-Raid1",
     vsphere_network         = "VM Network",
     vsphere_compute_cluster = "Cluster.HCM",
-    template                = "template-k8s"
+    template                = "template-k8s-v2"
   }
 }
 
