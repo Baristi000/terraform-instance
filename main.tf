@@ -55,7 +55,8 @@ resource "vsphere_virtual_machine" "vm" {
     }
   }
   disk {
-    label = "disk0"
-    size  = var.vm_disk_size
+    label               = "disk0"
+    size                = var.vm_disk_size
+    thin_provisioned    = false
   }
 }
