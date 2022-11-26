@@ -31,7 +31,7 @@ locals {
     vsphere_server          = "10.35.1.35",
     allow_unverified_ssl    = true,
     vsphere_datacenter      = "Datacenter",
-    vsphere_datastore       = "12. SSD-Raid1",
+    vsphere_datastore       = "12.Nvme-Raid0",
     vsphere_network         = "VM Network",
     vsphere_compute_cluster = "Cluster.HCM",
     template                = "template-k8s-v2"
